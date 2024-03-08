@@ -3,8 +3,8 @@ import img2pdf
 from PIL import Image
 
 pdf_FileName = "./png/output.pdf"  # 出力するPDFの名前
-png_Folder = "./png/"  # 画像フォルダ
-extension = ".png"  # 拡張子がPNGのものを対象
+img_Folder = "./png/"              # 画像フォルダ
+extension = ".png"                 # 拡張子
 
 
 def find_max_numbered_file(directory):
@@ -31,7 +31,7 @@ def main():
         f.write(
             img2pdf.convert(
                 [
-                    Image.open(png_Folder + str(j) + ".png").filename
+                    Image.open(png_Folder + str(j) + extension).filename
                     for j in range(1, find_max_numbered_file(png_Folder) + 1)
                 ]
             )
